@@ -3,6 +3,8 @@
 
 ORBIT Wallet is a retro-themed Ethereum wallet application that offers a gamified user experience. Users can connect their wallet, make transactions, track achievements, and level up based on their activity.
 
+# live demo : https://orbit-amber.vercel.app/
+
 ##  make sure you star this repo ✨  ,heheheh thanks :-P
 
 ## Features
