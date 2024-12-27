@@ -1,0 +1,28 @@
+{
+  "name": "Web3 Pixel Transactions",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:18",
+  "forwardPorts": [
+    3000
+  ],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "typescript.tsdk": "/usr/local/lib/node_modules/typescript/lib",
+        "eslint.validate": [
+          "javascript",
+          "javascriptreact",
+          "typescript",
+          "typescriptreact"
+        ],
+        "editor.formatOnSave": true
+      },
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "hfz.vite",
+        "robertohuertasm.vscode-icons"
+      ]
+    }
+  },
+  "postCreateCommand": "npm install"
+}
