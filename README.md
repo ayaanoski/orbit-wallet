@@ -18,6 +18,32 @@ ORBIT Wallet is a retro-themed Ethereum wallet application that offers a gamifie
 - **Error Handling**: Friendly modal with actionable steps for troubleshooting.
 - **Responsive Design**: Optimized for desktop and mobile devices.
 
+## 🚀 Getting Started with Daytona
+
+### 1. Install Daytona
+Follow the Daytona installation guide to get Daytona installed on your machine. You can find the guide [here](https://daytona.com/docs/installation).
+
+### 2. Create the Workspace
+To create your workspace, run the following command:
+```bash
+daytona create <SAMPLE_REPO_URL>
+```
+Replace `<SAMPLE_REPO_URL>` with the URL of your repository. This will set up your workspace and initialize the necessary files.
+
+### 3. More Steps (if needed)
+If there are additional steps, follow the prompts or instructions in the Daytona documentation to configure the workspace further.
+
+### 4. Start the Application
+Once the workspace is ready, start the application by running:
+```bash
+daytona start
+```
+This will initiate the application and allow you to begin development.
+
+---
+
+Ensure that you’ve followed all steps and are in the correct directory to run the commands successfully.
+
 ## Installation
 
 1. Clone the repository:
@@ -83,28 +109,4 @@ Enjoy the retro vibes with ORBIT Wallet! 🚀
 
 ---
 
-## 🚀 Getting Started with Daytona
 
-### 1. Install Daytona
-Follow the Daytona installation guide to get Daytona installed on your machine. You can find the guide [here](https://daytona.com/docs/installation).
-
-### 2. Create the Workspace
-To create your workspace, run the following command:
-```bash
-daytona create <SAMPLE_REPO_URL>
-```
-Replace `<SAMPLE_REPO_URL>` with the URL of your repository. This will set up your workspace and initialize the necessary files.
-
-### 3. More Steps (if needed)
-If there are additional steps, follow the prompts or instructions in the Daytona documentation to configure the workspace further.
-
-### 4. Start the Application
-Once the workspace is ready, start the application by running:
-```bash
-daytona start
-```
-This will initiate the application and allow you to begin development.
-
----
-
-Ensure that you’ve followed all steps and are in the correct directory to run the commands successfully.
