@@ -1,16 +1,14 @@
-
 import React from 'react';
 import ethLogo from '../assets/ether.png';
 
 interface WalletCardProps {
   nickname: string;
   walletAddress: string;
-  avatar: string;
+  avatar: string | File | null;
 }
 
 const WalletCard: React.FC<WalletCardProps> = ({ nickname, walletAddress, avatar }) => {
-  // Construct the correct avatar path
-  const avatarPath = `/src/assets/avatars/${avatar}`;
+  const avatarPath = avatar instanceof File ? URL.createObjectURL(avatar) : `/src/assets/avatars/${avatar}`;
 
   return (
     <div className="relative bg-gray-900 text-white p-8 rounded-lg shadow-lg w-96 mx-auto mb-6">
@@ -21,7 +19,11 @@ const WalletCard: React.FC<WalletCardProps> = ({ nickname, walletAddress, avatar
           <img src={ethLogo} alt="Ethereum Logo" className="w-14 h-14" />
         </div>
         <div className="mt-4 flex items-center">
-          <img src={avatarPath} alt="Avatar" className="w-16 h-16 rounded-full border-2 border-white mr-4" />
+          <img
+            src={avatarPath}
+            alt="Avatar"
+            className="w-16 h-16 rounded-full border-2 border-white mr-4"
+          />
           <div>
             <p className="text-sm font-semibold text-black">Nickname:</p>
             <p className="text-lg text-yellow-400 glow">{nickname || 'Unknown'}</p>
