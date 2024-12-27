@@ -4,11 +4,12 @@ interface AvatarPickerProps {
   onSelect: (avatar: string | File) => void;
 }
 
+// Use absolute paths for the avatars, assuming they are moved to the "public/avatars" folder
 const avatars = [
-  "1.png", // Modify the file names based on your actual images
-  "2.png",
-  "3.png",
-  "4.png",
+  "avatars/1.png", // Ensure these paths match the folder in your public directory
+  "avatars/2.png",
+  "avatars/3.png",
+  "avatars/4.png",
 ];
 
 const AvatarPicker: React.FC<AvatarPickerProps> = ({ onSelect }) => {
@@ -43,7 +44,7 @@ const AvatarPicker: React.FC<AvatarPickerProps> = ({ onSelect }) => {
           <h3 className="text-white mb-2">Selected Avatar</h3>
           <img
             src={
-              customAvatarURL || (typeof selectedAvatar === "string" ? `/src/assets/avatars/${selectedAvatar}` : "")
+              customAvatarURL || (typeof selectedAvatar === "string" ? `/${selectedAvatar}` : "")
             }
             alt="Selected Avatar"
             className="w-16 h-16 mx-auto rounded-full"
@@ -59,7 +60,7 @@ const AvatarPicker: React.FC<AvatarPickerProps> = ({ onSelect }) => {
             className="p-2 bg-gray-700 rounded hover:bg-gray-600"
           >
             <img
-              src={`/src/assets/avatars/${avatar}`} // Adjust path based on your folder structure
+              src={`/${avatar}`} // Use a relative path from the public folder
               alt={`Avatar ${index + 1}`}
               className="w-16 h-16 mx-auto rounded-full"
             />
