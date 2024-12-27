@@ -17,7 +17,7 @@ const Header = () => {
           </h1>
           <div className="ml-auto">
             <a
-              href="https://github.com/your-repo-link"
+              href="https://github.com/ayaanoski/orbit-wallet"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700"
