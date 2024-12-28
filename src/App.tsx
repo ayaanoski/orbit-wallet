@@ -58,7 +58,7 @@ function App() {
   const [avatar, setAvatar] = useState(() => localStorage.getItem('avatar') || 'default_avatar.png');
   const [showCard, setShowCard] = useState(false);
   const [streak, setStreak] = useState(() => parseInt(localStorage.getItem('streak') || '0'));
-  const [lastTransaction, setLastTransaction] = useState(() => localStorage.getItem('lastTransaction') || '');
+  const [lastTransaction] = useState(() => localStorage.getItem('lastTransaction') || '');
   const [showConnectConfetti, setShowConnectConfetti] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [xp, setXp] = useState(() => parseInt(localStorage.getItem('xp') || '0'));
@@ -226,9 +226,11 @@ function App() {
     }
   };
 
-  const handleAvatarSelect = (newAvatar: string) => {
+  const handleAvatarSelect = (newAvatar: string | File) => {
     setAvatar(newAvatar);
-    localStorage.setItem('avatar', newAvatar);
+    if (typeof newAvatar === 'string') {
+      localStorage.setItem('avatar', newAvatar);
+    }
   };
 
   return (
@@ -262,7 +264,7 @@ function App() {
             />
           )}
 
-          {!isConnected && (
+        {!isConnected && (
             <div className="mb-4">
               <label htmlFor="nickname" className="block text-white mb-2">
                 Enter your nickname:
@@ -276,6 +278,16 @@ function App() {
                 className="pixel-input p-2 w-full" 
               />
               <AvatarPicker onSelect={handleAvatarSelect} />
+              {avatar && (
+                <div className="mt-4">
+                  <p className="text-white mb-2">Selected Avatar:</p>
+                  <img 
+                    src={avatar instanceof File ? URL.createObjectURL(avatar) : avatar} 
+                    alt="Selected Avatar" 
+                    className="w-16 h-16 object-cover rounded-full border border-white"
+                  />
+                </div>
+              )}
               <button 
                 onClick={handleConnect} 
                 className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
