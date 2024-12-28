@@ -278,16 +278,6 @@ function App() {
                 className="pixel-input p-2 w-full" 
               />
               <AvatarPicker onSelect={handleAvatarSelect} />
-              {avatar && (
-                <div className="mt-4">
-                  <p className="text-white mb-2">Selected Avatar:</p>
-                  <img 
-                    src={avatar instanceof File ? URL.createObjectURL(avatar) : avatar} 
-                    alt="Selected Avatar" 
-                    className="w-16 h-16 object-cover rounded-full border border-white"
-                  />
-                </div>
-              )}
               <button 
                 onClick={handleConnect} 
                 className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
