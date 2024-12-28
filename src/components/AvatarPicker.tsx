@@ -4,12 +4,11 @@ interface AvatarPickerProps {
   onSelect: (avatar: string | File) => void;
 }
 
-// Use absolute paths for the avatars, assuming they are moved to the "public/avatars" folder
 const avatars = [
-  "avatars/1.png", // Ensure these paths match the folder in your public directory
-  "avatars/2.png",
-  "avatars/3.png",
-  "avatars/4.png",
+  "/avatars/1.png",
+  "/avatars/2.png",
+  "/avatars/3.png",
+  "/avatars/4.png",
 ];
 
 const AvatarPicker: React.FC<AvatarPickerProps> = ({ onSelect }) => {
@@ -19,18 +18,18 @@ const AvatarPicker: React.FC<AvatarPickerProps> = ({ onSelect }) => {
   const handleSelect = (avatar: string | File) => {
     setSelectedAvatar(avatar);
     if (typeof avatar === "string") {
-      setCustomAvatarURL(null); // Reset custom avatar if selecting predefined one
+      setCustomAvatarURL(null);
     }
-    onSelect(avatar); // Call the parent onSelect function
+    onSelect(avatar);
   };
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
       setSelectedAvatar(file);
-      const fileURL = URL.createObjectURL(file); // Generate a temporary URL for the uploaded file
+      const fileURL = URL.createObjectURL(file);
       setCustomAvatarURL(fileURL);
-      onSelect(file); // Pass the file object to the parent component
+      onSelect(file);
     }
   };
 
@@ -38,14 +37,11 @@ const AvatarPicker: React.FC<AvatarPickerProps> = ({ onSelect }) => {
     <div className="bg-gray-800 p-4 rounded shadow-md mt-6">
       <h2 className="text-white text-center font-press-start mb-4">Select Your Avatar</h2>
 
-      {/* Display selected avatar */}
       {selectedAvatar && (
         <div className="text-center mb-4">
           <h3 className="text-white mb-2">Selected Avatar</h3>
           <img
-            src={
-              customAvatarURL || (typeof selectedAvatar === "string" ? `/${selectedAvatar}` : "")
-            }
+            src={customAvatarURL || (typeof selectedAvatar === "string" ? selectedAvatar : "")}
             alt="Selected Avatar"
             className="w-16 h-16 mx-auto rounded-full"
           />
@@ -60,7 +56,7 @@ const AvatarPicker: React.FC<AvatarPickerProps> = ({ onSelect }) => {
             className="p-2 bg-gray-700 rounded hover:bg-gray-600"
           >
             <img
-              src={`/${avatar}`} // Use a relative path from the public folder
+              src={avatar}
               alt={`Avatar ${index + 1}`}
               className="w-16 h-16 mx-auto rounded-full"
             />
@@ -68,7 +64,6 @@ const AvatarPicker: React.FC<AvatarPickerProps> = ({ onSelect }) => {
         ))}
       </div>
 
-      {/* Upload custom avatar */}
       <div className="mt-4 text-center">
         <label className="block text-white mb-2">
           Or Upload Your Own Avatar
